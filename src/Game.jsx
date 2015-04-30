@@ -1,35 +1,19 @@
-var mapProps = [
-  {"name": "Pinar del Rio", "type": "Province", "terrain": "Province", "population": 1,
-   "control": "Synd", "support": "Active Support"},
-  {"name": "La Habana", "type": "Province", "terrain": "Grassland", "population": 1,
-   "control": "Uncontrolled", "support": "Passive Support"},
-  {"name": "Havana", "type": "City", "terrain": "City", "population": 6,
-   "control": "Govt", "support": "Active Support"},
-  {"name": "Matanzas", "type": "Province", "terrain": "Grassland", "population": 1,
-   "control": "Uncontrolled", "support": "Passive Opposition"},
-  {"name": "Las Villas", "type": "Province", "terrain": "Mountain", "population": 2,
-   "control": "Govt", "support": "Neutral"},
-  {"name": "Camaguey", "type": "Province", "terrain": "Forest", "population": 1,
-   "control": "DR", "support": "Passive Opposition"},
-  {"name": "Camaguey", "type": "City", "terrain": "City", "population": 1,
-   "control": "Govt", "support": "Passive Support"},
-  {"name": "Oriente", "type": "Province", "terrain": "Forest", "population": 2,
-   "control": "Uncontrolled", "support": "Passive Opposition"},
-  {"name": "Sierra Maestra", "type": "Province", "terrain": "Mountain", "population": 1,
-   "control": "26J", "support": "Active Opposition"},
-  {"name": "Santiago de Cuba", "type": "City", "terrain": "City", "population": 1,
-   "control": "Govt", "support": "Neutral"}
-];
+var React = require("react");
+var Pawn = require("./Pawn.jsx");
+var Province = require("./Province.jsx");
+var AvailableForces = require("./AvailableForces.jsx");
+var mapProps = require("./GameState.json");
 
-  var govForces = [];
-  var synForces = [];
-  var dirForces = [];
-  var castForces = [];
+var govForces = [];
+var synForces = [];
+var dirForces = [];
+var castForces = [];
 
 var Game = React.createClass({
 
+  displayName: "Game",
 
-  getInitialState: function () {
+  getInitialState: function() {
     return {data: []};
   },
 
@@ -41,45 +25,45 @@ var Game = React.createClass({
   },
 
   seedForces: function(player) {
-    var count=0;
+    var count = 0;
     var newPawn;
     switch (player) {
       case "Govt":
         count = 10;
         newPawn = <Pawn type="Govt" state="Underground" />;
-        for (var i = 0; i <= count; i++) {
+        for (let i = 0; i <= count; i++) {
           govForces.push(newPawn);
-        };
+        }
       break;
       case "Synd":
         count = 8;
         newPawn = <Pawn type="Synd" state="Underground" />;
-        for (var i = 0; i <= count; i++) {
+        for (let i = 0; i <= count; i++) {
           synForces.push(newPawn);
-        };
+        }
       break;
       case "DR":
         count = 4;
         newPawn = <Pawn type="DR" state="Underground" />;
-        for (var i = 0; i <= count; i++) {
-         dirForces.push(newPawn);
-        };
+        for (let i = 0; i <= count; i++) {
+          dirForces.push(newPawn);
+        }
       break;
       case "26J":
         count = 14;
         newPawn = <Pawn type="26J" state="Underground" />;
-        for (var i = 0; i <= count; i++) {
-         castForces.push(newPawn);
-        };
+        for (let i = 0; i <= count; i++) {
+          castForces.push(newPawn);
+        }
       break;
       default:
         count = 0;
-        newPawn = '';
+        newPawn = "";
       break;
-    };
+    }
   },
 
-  render: function () {
+  render: function() {
     return (
       <div className="game-map">
         <AvailableForces id="govt-forces" name="Government Forces" seed={govForces} />
@@ -94,9 +78,9 @@ var Game = React.createClass({
         <Province id="las-villas" data={mapProps[4]} />
         <Province id="camaguey" data={mapProps[5]} />
         <Province id="camaguey-city" data={mapProps[6]} />
-        <Province id="oriente" data={mapProps[7]} />                
+        <Province id="oriente" data={mapProps[7]} />
         <Province id="sierra-maestra" data={mapProps[8]} />
-        <Province id="santiago" data={mapProps[9]} />                
+        <Province id="santiago" data={mapProps[9]} />
       </div>
       );
   }
@@ -104,8 +88,4 @@ var Game = React.createClass({
 
 });
 
-
-React.render(
-  <Game />,
-   document.getElementById('game')
-);
+module.exports = Game;

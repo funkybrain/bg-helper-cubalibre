@@ -1,0 +1,22 @@
+[
+  {"name": "Pinar del Rio", "type": "Province", "terrain": "Province", "population": 1,
+   "control": "Synd", "support": "Passive Support"},
+  {"name": "La Habana", "type": "Province", "terrain": "Grassland", "population": 1,
+   "control": "Uncontrolled", "support": "Passive Support"},
+  {"name": "Havana", "type": "City", "terrain": "City", "population": 6,
+   "control": "Govt", "support": "Active Support"},
+  {"name": "Matanzas", "type": "Province", "terrain": "Grassland", "population": 1,
+   "control": "Uncontrolled", "support": "Passive Opposition"},
+  {"name": "Las Villas", "type": "Province", "terrain": "Mountain", "population": 2,
+   "control": "Govt", "support": "Neutral"},
+  {"name": "Camaguey", "type": "Province", "terrain": "Forest", "population": 1,
+   "control": "DR", "support": "Passive Opposition"},
+  {"name": "Camaguey", "type": "City", "terrain": "City", "population": 1,
+   "control": "Govt", "support": "Passive Support"},
+  {"name": "Oriente", "type": "Province", "terrain": "Forest", "population": 2,
+   "control": "Uncontrolled", "support": "Passive Opposition"},
+  {"name": "Sierra Maestra", "type": "Province", "terrain": "Mountain", "population": 1,
+   "control": "26J", "support": "Active Opposition"},
+  {"name": "Santiago de Cuba", "type": "City", "terrain": "City", "population": 1,
+   "control": "Govt", "support": "Neutral"}
+]

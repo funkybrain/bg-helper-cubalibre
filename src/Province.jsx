@@ -1,9 +1,12 @@
-
+var React = require("react");
+var PawnBox = require("./PawnBox.jsx");
 
 var control = ["Uncontrolled", "Govt", "26J", "DR", "Synd"];
 var support = ["Active Support", "Passive Support", "Neutral", "Passive Opposition", "Active opposition"];
 
-var Province = React.createClass ({
+var Province = React.createClass({
+
+  displayName: "Province",
 
   getInitialState: function() {
     return {control: this.props.data.control, support: this.props.data.support};
@@ -12,21 +15,21 @@ var Province = React.createClass ({
   handleControlClick: function() {
     var controlIndex = control.indexOf(this.state.control);
     this.setState({control: control[(controlIndex + 1) % 5]});
-  },  
+  },
 
   handleSupportClick: function() {
     var supportIndex = support.indexOf(this.state.support);
     this.setState({support: support[(supportIndex + 1) % 5]});
-  },  
+  },
 
   render: function() {
-    var classPopulationString = '';
+    var classPopulationString = "";
 
-    if (this.props.data.type=="City") {
-      classPopulationString = 'population-city';
+    if (this.props.data.type==="City") {
+      classPopulationString = "population-city";
     } else {
-      classPopulationString = 'population';
-    };
+      classPopulationString = "population";
+    }
 
     return (
       <div className="Province" id={this.props.id}>
@@ -43,3 +46,5 @@ var Province = React.createClass ({
     );
   }
 });
+
+module.exports = Province;
